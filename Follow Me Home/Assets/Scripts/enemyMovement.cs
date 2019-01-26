@@ -7,7 +7,6 @@ public class enemyMovement : MonoBehaviour
 {
 
     public Transform[] waypoints;
-    public float speed;
 
     private NavMeshAgent agent;
     private int destination = 0;
