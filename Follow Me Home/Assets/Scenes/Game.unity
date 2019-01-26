@@ -4483,6 +4483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dba365f10158646836f4ddea694d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staminaEnabled: 1
   staminaThreshold: 20
   staminaDiff: 0.5
   stamina: 10
@@ -4493,9 +4494,10 @@ MonoBehaviour:
   stopKey: 97
   sprintKey: 100
   smoothTime: 0.1
-  maxSpeed: 10
+  maxSpeed: 40
   maxZ: 4
   minZ: 0
+  rotationTarget: {fileID: 1872527106}
 --- !u!135 &1872527103
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4508,7 +4510,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.25, y: 0, z: 0}
 --- !u!4 &1872527106
 Transform:
   m_ObjectHideFlags: 0
