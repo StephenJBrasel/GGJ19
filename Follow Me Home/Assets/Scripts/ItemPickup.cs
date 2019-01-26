@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-	[SerializeField]
 	public float power;
-	public GameObject item;
-
-	private void Start()
-	{
-		item = GetComponent<GameObject>();
-	}
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -27,7 +20,7 @@ public class ItemPickup : MonoBehaviour
 			{
 				controller.stamina = controller.staminaThreshold;
 			}
-			item.SetActive(false);
+			this.gameObject.SetActive(false);
 			Debug.Log("Power up!");
 		}
 	}
