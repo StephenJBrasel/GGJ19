@@ -26,7 +26,12 @@ ModelImporter:
     4300000: pCylinder3
     4300002: polySurface1
     4300004: polySurface2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: doggo
+    second: {fileID: 2100000, guid: 4bf68e603922de542be74c956f3d09c4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
