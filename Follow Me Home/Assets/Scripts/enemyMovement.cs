@@ -7,7 +7,7 @@ public class enemyMovement : MonoBehaviour
 {
 
     public Transform[] waypoints;
-
+    
     private NavMeshAgent agent;
     private int destination = 0;
 
@@ -26,6 +26,7 @@ public class enemyMovement : MonoBehaviour
         {
             moveToNextWaypoint();
         }
+        
     }
 
     private void moveToNextWaypoint()
@@ -35,9 +36,9 @@ public class enemyMovement : MonoBehaviour
 
         // Set the next waypoint in the array.
         destination = ++destination % waypoints.Length;
-        //if (agent.transform.position.y != waypoints[destination].position.y)
-        //{
-        //    waypoints[destination].position.y = agent.transform.position.y;
-        //}
+        Debug.Log("Alerted");
+        Debug.Log("Turn Around");
+
     }
+
 }
