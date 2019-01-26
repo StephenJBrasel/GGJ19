@@ -19,18 +19,6 @@ public class Mainmenu : MonoBehaviour
         
     }
 
-    public void play(string scene)
-    {
-		if (PlayerPrefs.GetInt(scene) == 1)
-		{
-			SceneManager.LoadScene(SceneName);
-		}
-		else
-		{
-			Debug.Log("Can't play this level.");
-		}
-    }
-
     void options()
     {
        
