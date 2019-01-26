@@ -7,6 +7,13 @@ Assets/AssetStoreTools*
 Assets/ProCore/*
 Follow Me Home/Assets/ProCore/*
 
+[merge]
+    tool = unityyamlmerge
+
+    [mergetool "unityyamlmerge"]
+    trustExitCode = false
+    cmd = 'C:\Program Files\Unity\Editor\Data\Tools\UnityYAMLMerge.exe' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+
 # Visual Studio cache directory
 .vs/
 
