@@ -35,5 +35,9 @@ public class enemyMovement : MonoBehaviour
 
         // Set the next waypoint in the array.
         destination = ++destination % waypoints.Length;
+        //if (agent.transform.position.y != waypoints[destination].position.y)
+        //{
+        //    waypoints[destination].position.y = agent.transform.position.y;
+        //}
     }
 }
