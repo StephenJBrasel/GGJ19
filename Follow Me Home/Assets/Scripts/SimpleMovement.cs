@@ -8,4 +8,5 @@ public class SimpleMovement : MonoBehaviour
     {
         GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Abs(Input.GetAxis("Horizontal")*10), 0, Mathf.Abs(Input.GetAxis("Vertical")*10));
     }
+
 }
