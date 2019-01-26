@@ -6,23 +6,34 @@ public class enemyMovement : MonoBehaviour
 {
 
     public Transform owner;
-    public Vector2 velocity;
+    public Transform[] waypoints;
     public float speed;
+
+    private int currentWaypoint = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10.0f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentWaypoint < waypoints.Length)
+        {
+            moveToNextWaypoint();
+        }
+    }
+
+    private void moveToNextWaypoint()
+    {
+        Vector3 nextWaypoint = waypoints[currentWaypoint].position;
+        Vector3 direction = nextWaypoint - transform.position;
     }
 
     private void FixedUpdate()
     {
-        owner.Translate(Vector3.right * Time.deltaTime);
+        owner.Translate(Vector3.right * Time.deltaTime * speed);
     }
 }
