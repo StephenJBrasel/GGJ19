@@ -10,8 +10,8 @@ public class Mainmenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+		PlayerPrefs.SetInt(SceneName, 1);
+	}
 
     // Update is called once per frame
     void Update()
@@ -19,9 +19,16 @@ public class Mainmenu : MonoBehaviour
         
     }
 
-    public void play()
+    public void play(string scene)
     {
-        SceneManager.LoadScene(SceneName);
+		if (PlayerPrefs.GetInt(scene) == 1)
+		{
+			SceneManager.LoadScene(SceneName);
+		}
+		else
+		{
+			Debug.Log("Can't play this level.");
+		}
     }
 
     void options()
