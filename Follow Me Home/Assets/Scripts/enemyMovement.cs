@@ -1,28 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour
 {
 
     public Transform[] waypoints;
+    public float speed;
 
-    private NavMeshAgent agent;
-    private int destination = 0;
+    private bool toNextWaypoint = true;
+
+    private int currentWaypoint = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(waypoints[destination].position);
-        moveToNextWaypoint();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!agent.pathPending && agent.remainingDistance < 0.5f)
+        transform.Translate(Vector3.right * Time.deltaTime * speed);
+
+        if (currentWaypoint < waypoints.Length)
         {
             moveToNextWaypoint();
         }
@@ -30,14 +31,10 @@ public class enemyMovement : MonoBehaviour
 
     private void moveToNextWaypoint()
     {
-        // Set the way point for the NPC to move to.
-        agent.SetDestination(waypoints[destination].position);
-
-        // Set the next waypoint in the array.
-        destination = ++destination % waypoints.Length;
-        //if (agent.transform.position.y != waypoints[destination].position.y)
-        //{
-        //    waypoints[destination].position.y = agent.transform.position.y;
-        //}
+        if (toNextWaypoint)
+        {
+            Vector3 nextWaypoint = waypoints[currentWaypoint].position;
+            Vector3 direction = nextWaypoint - transform.position;
+        }
     }
 }
