@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Pit_GameOver : MonoBehaviour
+public class Menu_GameOver : MonoBehaviour
 {
 	private void Start()
 	{
