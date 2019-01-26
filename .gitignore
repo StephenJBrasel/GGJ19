@@ -5,6 +5,7 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 Assets/ProCore/*
+Follow Me Home/Assets/ProCore/*
 
 # Visual Studio cache directory
 .vs/
