@@ -25,7 +25,7 @@ public class DoggoController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float speed = Input.GetKey(stopKey) ? 0.0f : walkSpeed;
         if (Input.GetKey(sprintKey))
@@ -33,7 +33,7 @@ public class DoggoController : MonoBehaviour
             speed *= sprintMultiplier;
         }
 
-        Move(Time.deltaTime * speed, 0.0f, 0.0f);
+        Move(Time.fixedDeltaTime * speed, 0.0f, 0.0f);
 
         if (Input.GetKeyDown(furtherKey))
         {
