@@ -29,8 +29,6 @@ public class DoggoController : MonoBehaviour
 
     private float currentZVelocity = 0.0f;
     private int targetZ;
-    private bool hitAnObstacle = false;
-    private int collisionCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -64,44 +62,41 @@ public class DoggoController : MonoBehaviour
     void Update()
 	{
         float deltaX = 0.0f;
-        if (collisionCount == 0)
+        float xPerSecond = walkSpeed;
+        if (InputManager.IsKeyActive(stopKey))
         {
-            float xPerSecond = walkSpeed;
-            if (InputManager.IsKeyActive(stopKey))
+            if (!staminaEnabled || stamina < staminaThreshold)
             {
-                if (!staminaEnabled || stamina < staminaThreshold)
-                {
-                    xPerSecond = 0.0f;
+                xPerSecond = 0.0f;
 
-                    if (staminaEnabled)
+                if (staminaEnabled)
+                {
+                    stamina += staminaDiff;
+                    if (stamina > staminaThreshold)
                     {
-                        stamina += staminaDiff;
-                        if (stamina > staminaThreshold)
-                        {
-                            stamina = staminaThreshold;
-                        }
+                        stamina = staminaThreshold;
                     }
                 }
             }
-            else if (InputManager.IsKeyActive(sprintKey))
-            {
-                if (!staminaEnabled || stamina > 0.0f)
-                {
-                    xPerSecond *= sprintMultiplier;
-
-                    if (staminaEnabled)
-                    {
-                        stamina -= staminaDiff;
-                        if (stamina < 0.0f)
-                        {
-                            stamina = 0.0f;
-                        }
-                    }
-                }
-            }
-
-            deltaX = Time.deltaTime * xPerSecond;
         }
+        else if (InputManager.IsKeyActive(sprintKey))
+        {
+            if (!staminaEnabled || stamina > 0.0f)
+            {
+                xPerSecond *= sprintMultiplier;
+
+                if (staminaEnabled)
+                {
+                    stamina -= staminaDiff;
+                    if (stamina < 0.0f)
+                    {
+                        stamina = 0.0f;
+                    }
+                }
+            }
+        }
+
+        deltaX = Time.deltaTime * xPerSecond;
 
         float newZ = Mathf.SmoothDamp(transform.position.z, targetZ, ref currentZVelocity, smoothTime, maxSpeed);
         Vector3 previousPosition = transform.position;
@@ -117,15 +112,5 @@ public class DoggoController : MonoBehaviour
             }
             rotationTarget.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
         }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        ++collisionCount;
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        --collisionCount;
     }
 }
