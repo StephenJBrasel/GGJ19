@@ -18,8 +18,17 @@ public class ItemPickup : MonoBehaviour
 		if (other.tag == "Player")
 		{
 			DoggoController controller = other.GetComponent<DoggoController>();
-			controller.walkSpeed += power;
+			controller.stamina += power;
+			if (controller.stamina < 0.0f)
+			{
+				controller.stamina = 0.0f;
+			}
+			else if (controller.stamina > controller.staminaThreshold)
+			{
+				controller.stamina = controller.staminaThreshold;
+			}
 			item.SetActive(false);
+			Debug.Log("Power up!");
 		}
 	}
 }
