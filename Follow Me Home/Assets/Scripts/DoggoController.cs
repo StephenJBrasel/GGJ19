@@ -5,9 +5,10 @@ using UnityEngine;
 public class DoggoController : MonoBehaviour
 {
     public float walkSpeed = 5.0f;
-    public float sprintSpeed = 10.0f;
+    public float sprintMultiplier = 2.0f;
     public KeyCode furtherKey = KeyCode.W;
     public KeyCode closerKey = KeyCode.S;
+    public KeyCode stopKey = KeyCode.A;
     public KeyCode sprintKey = KeyCode.LeftShift;
     public float smoothTime = 0.1f;
     public float maxSpeed = 10.0f;
@@ -26,7 +27,11 @@ public class DoggoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float speed = Input.GetKey(sprintKey) ? sprintSpeed : walkSpeed;
+        float speed = Input.GetKey(stopKey) ? 0.0f : walkSpeed;
+        if (Input.GetKey(sprintKey))
+        {
+            speed *= sprintMultiplier;
+        }
 
         Move(Time.deltaTime * speed, 0.0f, 0.0f);
 
@@ -52,5 +57,11 @@ public class DoggoController : MonoBehaviour
         newPosition = new Vector3(newPosition.x, newPosition.y, Mathf.Clamp(newPosition.z, minZ, maxZ));
         //newPosition.z = Mathf.SmoothDamp(gameObject.transform.position.z, newPosition.z, ref currentZVelocity, smoothTime, maxSpeed);
         gameObject.transform.position = newPosition;
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        // stop
+        Debug.Log("sup");
     }
 }
