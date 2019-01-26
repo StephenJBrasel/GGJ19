@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public bool isHiding = false;
+
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Dog is hiding!");
+            isHiding = true;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Dog is now in the open!");
+            isHiding = false;
         }
+
     }
+
+
 }
