@@ -288,7 +288,7 @@ PrefabInstance:
     - target: {fileID: 1444909426245264245, guid: 3bf4b30c6672e0f4abbb9ef09d1f6144,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1444909426245264245, guid: 3bf4b30c6672e0f4abbb9ef09d1f6144,
         type: 3}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 956391766}
   - component: {fileID: 956391765}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Owner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -549,7 +549,7 @@ PrefabInstance:
     - target: {fileID: 1444909426245264245, guid: 3bf4b30c6672e0f4abbb9ef09d1f6144,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1444909426245264245, guid: 3bf4b30c6672e0f4abbb9ef09d1f6144,
         type: 3}

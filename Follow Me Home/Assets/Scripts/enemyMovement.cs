@@ -8,6 +8,7 @@ public class enemyMovement : MonoBehaviour
     public Transform owner;
     public Transform[] waypoints;
     public float speed;
+    private bool toNextWaypoint = true;
 
     private int currentWaypoint = 0;
 
