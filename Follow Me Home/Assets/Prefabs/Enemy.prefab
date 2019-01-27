@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 1535956052}
   - component: {fileID: 1535956051}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -920,13 +920,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71263c494366a74cba7d9b6d578bc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypointsParent: {fileID: 0}
   detector: {fileID: 0}
+  suspiciousIcon: {fileID: 449452662}
+  alertedIcon: {fileID: 389847585726143494}
 --- !u!143 &1535956052
 CharacterController:
   m_ObjectHideFlags: 0
