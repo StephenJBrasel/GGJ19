@@ -913,7 +913,7 @@ MonoBehaviour:
   smoothing: 0.1
   doggo: {fileID: 0}
   degreesPerSecond: 720
-  stopDuration: 1
+  stopDuration: 0.5
 --- !u!143 &1535956052
 CharacterController:
   m_ObjectHideFlags: 0

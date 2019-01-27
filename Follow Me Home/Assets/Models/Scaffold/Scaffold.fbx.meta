@@ -196,7 +196,12 @@ ModelImporter:
     4300070: pCylinder5
     4300072: pCylinder4
     4300074: pCylinder3
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: c5c8f912af6fd174dac36fd338d35f8e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
