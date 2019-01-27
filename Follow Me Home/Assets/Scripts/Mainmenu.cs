@@ -6,15 +6,16 @@ using UnityEngine.SceneManagement;
 public class Mainmenu : MonoBehaviour
 {
     public string SceneName;
-	private AudioSource AudioSource;
-	public AudioClip click;
-	public AudioClip negative;
+    public string Level1;
+    public string Level2;
+    public string Level3;
+   
 
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-		AudioSource = gameObject.GetComponent<AudioSource>();
-	}
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,18 +26,30 @@ public class Mainmenu : MonoBehaviour
     public void play()
     {
         SceneManager.LoadScene(SceneName);
-		AudioSource.PlayOneShot(click);
     }
 
-    public void options()
-	{
-		AudioSource.PlayOneShot(click);
-	}
+    void options()
+    {
+       
+    }
+
+    public void one()
+    {
+        SceneManager.LoadScene(Level1);
+    }
+    public void two()
+    {
+        SceneManager.LoadScene(Level2);
+    }
+
+    public void three()
+    {
+        SceneManager.LoadScene(Level3);
+    }
 
     public void quit()
     {
         Application.Quit();
         Debug.Log("Quitting");
-		AudioSource.PlayOneShot(negative);
-	}
+    }
 }
