@@ -6324,7 +6324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6332,7 +6332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -15624,8 +15624,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0.65, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.75}
+  m_Center: {x: 1.19, y: 0, z: 0}
 --- !u!114 &1552101494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19454,7 +19454,7 @@ MonoBehaviour:
   maxSpeed: 40
   maxZ: 4
   minZ: 0
-  rotationTarget: {fileID: 1872527106}
+  rotationTarget: {fileID: 566282947}
   isSprinting: 0
 --- !u!135 &1872527103
 SphereCollider:
@@ -19468,7 +19468,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0.25, y: 0, z: 0}
+  m_Center: {x: 1.66, y: 0, z: 0}
 --- !u!114 &1872527104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19484,7 +19484,7 @@ MonoBehaviour:
   doggo: {fileID: 1872527101}
   owner: {fileID: 504962311}
   gameOverMenu: {fileID: 6658552987599053094}
-  maxDistance: 17
+  maxDistance: 25
 --- !u!4 &1872527106
 Transform:
   m_ObjectHideFlags: 0
@@ -23725,12 +23725,12 @@ PrefabInstance:
     - target: {fileID: 1357068730527648187, guid: 946184a6653018d4289ac7568fce5cb2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1357068730527648187, guid: 946184a6653018d4289ac7568fce5cb2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1357068730527648187, guid: 946184a6653018d4289ac7568fce5cb2,
         type: 3}
