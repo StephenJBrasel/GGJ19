@@ -58,7 +58,7 @@ public class enemyMovement : MonoBehaviour
 
         if (remainingDistance < 0.002f)
         {
-            Debug.Log("Remaining Distance: " + remainingDistance.ToString());
+            Debug.Log("Remaining Distance less than .002: " + remainingDistance.ToString());
             //alerted();
         }
     }
