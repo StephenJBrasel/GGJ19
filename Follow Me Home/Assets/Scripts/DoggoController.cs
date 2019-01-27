@@ -32,6 +32,7 @@ public class DoggoController : MonoBehaviour
 
     private float currentZVelocity = 0.0f;
     private int targetZ;
+    private Quaternion initialRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,7 @@ public class DoggoController : MonoBehaviour
         InputManager.RegisterKeyActive(sprintKey, Dummy);
         targetZ = Mathf.RoundToInt(transform.position.z);
         stamina = staminaThreshold * 0.5f;
+        initialRotation = rotationTarget.rotation;
     }
 
     void Dummy(){}
@@ -117,7 +119,7 @@ public class DoggoController : MonoBehaviour
             {
                 angle *= -1.0f;
             }
-            rotationTarget.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+            rotationTarget.rotation = initialRotation * Quaternion.Euler(0.0f, angle, 0.0f);
         }
     }
 }
