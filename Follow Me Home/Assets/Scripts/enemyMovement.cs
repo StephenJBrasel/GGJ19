@@ -15,7 +15,8 @@ public class enemyMovement : MonoBehaviour
 
     public Transform waypointsParent;
     public Detector detector;
-    public GameObject suspiciousIcon;
+	public Menu_GameOver gameOverMenu;
+	public GameObject suspiciousIcon;
     public GameObject alertedIcon;
 
     private NavMeshAgent agent;
@@ -108,8 +109,8 @@ public class enemyMovement : MonoBehaviour
         if (!detector.isHiding)
         {
             Debug.Log("I SEE YOU!");
-
-        }
+			gameOverMenu.gameObject.SetActive(true);
+		}
         else
         {
             isAlerted = false;
