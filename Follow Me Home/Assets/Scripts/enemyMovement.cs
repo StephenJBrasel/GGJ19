@@ -1,40 +1,83 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour
 {
 
     public Transform[] waypoints;
-    public float speed;
+    public Detector detector;
 
-    private bool toNextWaypoint = true;
-
-    private int currentWaypoint = 0;
+    private NavMeshAgent agent;
+    private int destination = 0;
+    private bool isSearching = false;
+    private bool isAlerted = false;
+    private float remainingDistance = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
+        agent.SetDestination(waypoints[destination].position);
+        moveToNextWaypoint();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * speed);
-
-        if (currentWaypoint < waypoints.Length)
+        remainingDistance = waypoints[destination].position.x - agent.transform.position.x;
+        if (!agent.pathPending && remainingDistance < 0.5f && !isAlerted)
         {
             moveToNextWaypoint();
         }
+
     }
 
     private void moveToNextWaypoint()
     {
-        if (toNextWaypoint)
+        // Set the way point for the NPC to move to.
+        if (destination < (waypoints.Length - 1))
         {
-            Vector3 nextWaypoint = waypoints[currentWaypoint].position;
-            Vector3 direction = nextWaypoint - transform.position;
+            destination++;
+            agent.SetDestination(waypoints[destination].position);
+        }
+
+        // Set the next waypoint in the array.
+        //destination = ++destination % waypoints.Length;
+        if (destination == (waypoints.Length - 1))
+        {
+            Debug.Log("Waypoints Len: " + waypoints.Length.ToString());
+            //agent.isStopped = true;
+        }
+
+        if (remainingDistance < 0.002f)
+        {
+            Debug.Log("Remaining Distance: " + remainingDistance.ToString());
+            alerted();
         }
     }
+
+    private void alerted()
+    {
+        isAlerted = true;
+        Debug.Log("I am alerted!");
+        agent.isStopped = true;
+        turnAround();
+    }
+
+    private void turnAround()
+    {
+        if (!detector.isHiding)
+        {
+            Debug.Log("I SEE YOU!");
+        }
+        else
+        {
+            isAlerted = false;
+            agent.isStopped = false;
+            Debug.Log("Must have been nothing.");
+        }
+    }
+
 }
