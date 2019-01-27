@@ -47,6 +47,11 @@ public class enemyMovement : MonoBehaviour
     {
         remainingDistance = waypointsParent.GetChild(destination).position.x - agent.transform.position.x;
 
+        if (doggo.transform.position.x > transform.position.x && (state == State.Chill || state == State.Suspicious))
+        {
+            SetState(State.Stopped);
+        }
+
         switch (state)
         {
             case State.Chill:
@@ -95,14 +100,14 @@ public class enemyMovement : MonoBehaviour
                 if (((Time.time - stopTime) > stopDuration) && gameOver.isActiveAndEnabled == false)
                 {
                     Debug.Log("Stopped");
-                    if (detector.isHiding)
-                    {
-                        SetState(State.Resuming);
-                    }
-                    else
+                    if (!detector.isHiding || doggo.transform.position.x > transform.position.x)
                     {
                         Debug.Log("I SEE YOU!");
                         gameOver.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        SetState(State.Resuming);
                     }
                 }
                 break;
