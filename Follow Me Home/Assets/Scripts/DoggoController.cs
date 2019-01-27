@@ -27,6 +27,9 @@ public class DoggoController : MonoBehaviour
     public int minZ = 0;
     public Transform rotationTarget;
 
+    [HideInInspector]
+    public bool isSprinting = false;
+
     private float currentZVelocity = 0.0f;
     private int targetZ;
 
@@ -63,6 +66,7 @@ public class DoggoController : MonoBehaviour
 	{
         float deltaX = 0.0f;
         float xPerSecond = walkSpeed;
+        bool sprint = false;
         if (InputManager.IsKeyActive(stopKey))
         {
             if (!staminaEnabled || stamina < staminaThreshold)
@@ -83,6 +87,7 @@ public class DoggoController : MonoBehaviour
         {
             if (!staminaEnabled || stamina > 0.0f)
             {
+                sprint = true;
                 xPerSecond *= sprintMultiplier;
 
                 if (staminaEnabled)
@@ -95,6 +100,7 @@ public class DoggoController : MonoBehaviour
                 }
             }
         }
+        isSprinting = sprint;
 
         deltaX = Time.deltaTime * xPerSecond;
 
