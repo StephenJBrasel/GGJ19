@@ -3681,6 +3681,14 @@ PrefabInstance:
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 1274502721}
+    - target: {fileID: 1535956053, guid: 57a9f17da2c4bab40bfe3a995ba0103d, type: 3}
+      propertyPath: doggo
+      value: 
+      objectReference: {fileID: 1223382034}
+    - target: {fileID: 1535956053, guid: 57a9f17da2c4bab40bfe3a995ba0103d, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 1274502721}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a9f17da2c4bab40bfe3a995ba0103d, type: 3}
 --- !u!1 &1373891108
