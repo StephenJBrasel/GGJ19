@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class LevelMusic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+	private AudioSource AudioSource;
+	public AudioClip music;
+	// Start is called before the first frame update
+	void Start()
     {
-        
-    }
+		AudioSource = gameObject.GetComponent<AudioSource>();
+		AudioSource.loop = true;
+		AudioSource.Play();
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
-        
-    }
+	}
 }
