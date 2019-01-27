@@ -8,10 +8,14 @@ public class MenuPause : MonoBehaviour
 	public bool GameIsPaused = false;
 	public GameObject PauseMenuUI;
 	private AudioSource AudioSource;
+	public GameObject Menu;
+	private AudioSource LevelMusic;
 	public AudioClip click;
 
 	private void Start()
 	{
+		LevelMusic = Menu.GetComponent<AudioSource>();
+		LevelMusic.Pause();
 		AudioSource = gameObject.GetComponent<AudioSource>();
 	}
 
@@ -37,6 +41,7 @@ public class MenuPause : MonoBehaviour
 		Time.timeScale = 1f;
 		GameIsPaused = false;
 		AudioSource.PlayOneShot(click);
+		LevelMusic.UnPause();
 	}
 
 	public void Pause()
@@ -52,6 +57,7 @@ public class MenuPause : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
 		AudioSource.PlayOneShot(click);
+		LevelMusic.Play();
 	}
 
 	public void LoadMenu()
