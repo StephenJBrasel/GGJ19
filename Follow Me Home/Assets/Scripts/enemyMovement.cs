@@ -13,6 +13,12 @@ public class enemyMovement : MonoBehaviour
     private bool isSearching = false;
     private bool isAlerted = false;
 
+    private NavMeshAgent agent;
+    private int destination = 0;
+    private bool isSearching = false;
+    private bool isAlerted = false;
+    private float remainingDistance = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +30,8 @@ public class enemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!agent.pathPending && agent.remainingDistance < 0.5f && !isAlerted)
+        remainingDistance = waypoints[destination].position.x - agent.transform.position.x;
+        if (!agent.pathPending && remainingDistance < 0.5f && !isAlerted)
         {
             moveToNextWaypoint();
         }
@@ -40,15 +47,22 @@ public class enemyMovement : MonoBehaviour
         //destination = ++destination % waypoints.Length;
         if (destination == (waypoints.Length - 1))
         {
-            Debug.Log("Waypoints Len: ");
-            Debug.Log(waypoints.Length - 1);
-            agent.isStopped = true;
+            destination++;
+            agent.SetDestination(waypoints[destination].position);
         }
 
-        if (agent.remainingDistance < 0.2f)
+        // Set the next waypoint in the array.
+        //destination = ++destination % waypoints.Length;
+        if (destination == (waypoints.Length - 1))
         {
-            Debug.Log(agent.remainingDistance);
-            //alerted();
+            Debug.Log("Waypoints Len: " + waypoints.Length.ToString());
+            //agent.isStopped = true;
+        }
+
+        if (remainingDistance < 0.002f)
+        {
+            Debug.Log("Remaining Distance: " + remainingDistance.ToString());
+            alerted();
         }
     }
 
