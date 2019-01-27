@@ -151,7 +151,7 @@ MonoBehaviour:
   maxSpeed: 40
   maxZ: 4
   minZ: 0
-  rotationTarget: {fileID: 8110886317424545238}
+  rotationTarget: {fileID: 8754549547919234759}
   isSprinting: 0
 --- !u!114 &8110886316523135644
 MonoBehaviour:
@@ -314,14 +314,6 @@ PrefabInstance:
     - target: {fileID: 400248, guid: d280103e2546e7e48b3345956f94020a, type: 3}
       propertyPath: m_LocalScale.z
       value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: d280103e2546e7e48b3345956f94020a, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: d280103e2546e7e48b3345956f94020a, type: 3}
-      propertyPath: m_CullingMode
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: d280103e2546e7e48b3345956f94020a, type: 3}
       propertyPath: m_Controller
