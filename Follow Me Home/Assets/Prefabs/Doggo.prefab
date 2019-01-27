@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8754549547929090271}
+  animationSpeed: 2
   staminaEnabled: 0
   staminaThreshold: 80
   staminaDiff: 0.5
@@ -251,10 +252,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkCycleDogWalk
       objectReference: {fileID: 0}
-    - target: {fileID: 100134, guid: d280103e2546e7e48b3345956f94020a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 100136, guid: d280103e2546e7e48b3345956f94020a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -319,6 +316,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 393cd83dd8010374baa99ca804e6a7a7, type: 2}
+    - target: {fileID: 100134, guid: d280103e2546e7e48b3345956f94020a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: d280103e2546e7e48b3345956f94020a, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
@@ -491,14 +492,6 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 8754549547919234785}
-    - target: {fileID: 13700002, guid: d280103e2546e7e48b3345956f94020a, type: 3}
-      propertyPath: m_Bones.Array.data[0]
-      value: 
-      objectReference: {fileID: 8754549547919234913}
-    - target: {fileID: 13700002, guid: d280103e2546e7e48b3345956f94020a, type: 3}
-      propertyPath: m_RootBone
-      value: 
-      objectReference: {fileID: 8754549547919234913}
     - target: {fileID: 13700004, guid: d280103e2546e7e48b3345956f94020a, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
@@ -507,6 +500,14 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 8754549547919234703}
+    - target: {fileID: 13700002, guid: d280103e2546e7e48b3345956f94020a, type: 3}
+      propertyPath: m_Bones.Array.data[0]
+      value: 
+      objectReference: {fileID: 8754549547919234913}
+    - target: {fileID: 13700002, guid: d280103e2546e7e48b3345956f94020a, type: 3}
+      propertyPath: m_RootBone
+      value: 
+      objectReference: {fileID: 8754549547919234913}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d280103e2546e7e48b3345956f94020a, type: 3}
 --- !u!4 &8754549547919234869 stripped

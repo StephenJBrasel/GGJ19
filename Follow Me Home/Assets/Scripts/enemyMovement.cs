@@ -17,6 +17,8 @@ public class enemyMovement : MonoBehaviour
     }
 
 
+    public Animator animator;
+    public float animationSpeed = 1.0f;
     public Transform waypointsParent;
     public Detector detector;
     public GameObject suspiciousIcon;
@@ -40,6 +42,7 @@ public class enemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(waypointsParent.GetChild(destination).position);
         destination = 0;
+        SetState(State.Chill);
     }
 
     // Update is called once per frame
@@ -136,6 +139,7 @@ public class enemyMovement : MonoBehaviour
                 suspiciousIcon.SetActive(false);
                 alertedIcon.SetActive(false);
                 agent.isStopped = false;
+                animator.speed = animationSpeed;
                 state = State.Chill;
                 break;
             case State.Suspicious:
@@ -143,12 +147,14 @@ public class enemyMovement : MonoBehaviour
                 suspiciousIcon.SetActive(true);
                 alertedIcon.SetActive(false);
                 agent.isStopped = false;
+                animator.speed = animationSpeed;
                 state = State.Suspicious;
                 break;
             case State.Stopping:
                 suspiciousIcon.SetActive(true);
                 alertedIcon.SetActive(false);
                 agent.isStopped = true;
+                animator.speed = 0.0f;
                 state = State.Stopping;
                 break;
             case State.Stopped:
@@ -156,6 +162,7 @@ public class enemyMovement : MonoBehaviour
                 suspiciousIcon.SetActive(false);
                 alertedIcon.SetActive(true);
                 agent.isStopped = true;
+                animator.speed = 0.0f;
                 state = State.Stopped;
                 stopTime = Time.time;
                 break;
@@ -164,6 +171,7 @@ public class enemyMovement : MonoBehaviour
                 suspiciousIcon.SetActive(false);
                 alertedIcon.SetActive(false);
                 agent.isStopped = true;
+                animator.speed = 0.0f;
                 state = State.Resuming;
                 break;
         }
