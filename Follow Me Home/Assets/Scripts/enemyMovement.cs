@@ -26,6 +26,7 @@ public class enemyMovement : MonoBehaviour
     public GameObject doggo;
     public float degreesPerSecond = 720.0f;
     public float stopDuration = 0.5f;
+    public float suspicionDistance = 5.0f;
 
     private NavMeshAgent agent;
     private int destination;
@@ -46,10 +47,15 @@ public class enemyMovement : MonoBehaviour
     {
         remainingDistance = waypointsParent.GetChild(destination).position.x - agent.transform.position.x;
 
+        if (doggo.transform.position.x > transform.position.x && (state == State.Chill || state == State.Suspicious))
+        {
+            SetState(State.Stopped);
+        }
+
         switch (state)
         {
             case State.Chill:
-                if (remainingDistance < 10.0f)
+                if (remainingDistance < suspicionDistance)
                 {
                     SetState(State.Suspicious);
                 }
@@ -75,8 +81,11 @@ public class enemyMovement : MonoBehaviour
                 break;
             case State.Stopping:
             {
-                Quaternion toDoggo = Quaternion.LookRotation((doggo.transform.position - transform.position).normalized, Vector3.up);
-                Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, toDoggo, Time.deltaTime * degreesPerSecond);
+                Vector3 forward = doggo.transform.position - transform.position;
+                forward.y = 0.0f;
+                forward.Normalize();
+                Quaternion targetRotation = Quaternion.LookRotation(forward, Vector3.up);
+                Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * degreesPerSecond);
                 if (Quaternion.Angle(transform.rotation, newRotation) > 5.0f)
                 {
                     transform.rotation = newRotation;
@@ -91,21 +100,21 @@ public class enemyMovement : MonoBehaviour
                 if (((Time.time - stopTime) > stopDuration) && gameOver.isActiveAndEnabled == false)
                 {
                     Debug.Log("Stopped");
-                    if (detector.isHiding)
-                    {
-                        SetState(State.Resuming);
-                    }
-                    else
+                    if (!detector.isHiding || doggo.transform.position.x > transform.position.x)
                     {
                         Debug.Log("I SEE YOU!");
                         gameOver.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        SetState(State.Resuming);
                     }
                 }
                 break;
             case State.Resuming:
             {
-                Quaternion toDoggo = Quaternion.LookRotation((doggo.transform.position - transform.position).normalized, Vector3.up);
-                Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, toDoggo, Time.deltaTime * degreesPerSecond);
+                Quaternion targetRotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
+                Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * degreesPerSecond);
                 if (Quaternion.Angle(transform.rotation, newRotation) > 5.0f)
                 {
                     transform.rotation = newRotation;
