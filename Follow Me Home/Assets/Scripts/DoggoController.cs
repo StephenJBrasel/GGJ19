@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoggoController : MonoBehaviour
 {
+        public Animator animator;
+
     [Header("Stamina")]
     public bool staminaEnabled = true;
 	public float staminaThreshold = 40.0f;
@@ -26,6 +28,7 @@ public class DoggoController : MonoBehaviour
     public int maxZ = 4;
     public int minZ = 0;
     public Transform rotationTarget;
+
 
     [HideInInspector]
     public bool isSprinting = false;
@@ -69,12 +72,14 @@ public class DoggoController : MonoBehaviour
 	{
         float deltaX = 0.0f;
         float xPerSecond = walkSpeed;
+        animator.speed = 1.0f;
         bool sprint = false;
         if (InputManager.IsKeyActive(stopKey))
         {
             if (!staminaEnabled || stamina < staminaThreshold)
             {
                 xPerSecond = 0.0f;
+                animator.speed = 0.0f;
 
                 if (staminaEnabled)
                 {
@@ -92,6 +97,7 @@ public class DoggoController : MonoBehaviour
             {
                 sprint = true;
                 xPerSecond *= sprintMultiplier;
+                animator.speed = 2.0f;
 
                 if (staminaEnabled)
                 {

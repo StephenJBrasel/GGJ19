@@ -28988,20 +28988,5 @@ PrefabInstance:
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 6658552987599053094}
-    - target: {fileID: 8110886316271431144, guid: f0099b67ceb736d45b128726b942d764,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110886316271431145, guid: f0099b67ceb736d45b128726b942d764,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110886316271431145, guid: f0099b67ceb736d45b128726b942d764,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.75
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0099b67ceb736d45b128726b942d764, type: 3}
