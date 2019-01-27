@@ -6,6 +6,7 @@
 Assets/AssetStoreTools*
 Assets/ProCore/*
 Follow Me Home/Assets/ProCore/*
+Follow Me Home/Assets/TextMesh Pro/*
 
 [merge]
     tool = unityyamlmerge
@@ -43,4 +44,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-*.meta

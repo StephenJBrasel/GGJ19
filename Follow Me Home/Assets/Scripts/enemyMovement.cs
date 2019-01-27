@@ -27,11 +27,16 @@ public class enemyMovement : MonoBehaviour
     void Update()
     {
         remainingDistance = waypoints[destination].position.x - agent.transform.position.x;
+        Debug.Log("Remaining Distance: " + remainingDistance.ToString());
+       
+
+    }
+    private void FixedUpdate()
+    {
         if (!agent.pathPending && remainingDistance < 0.5f && !isAlerted)
         {
             moveToNextWaypoint();
         }
-
     }
 
     private void moveToNextWaypoint()
@@ -54,7 +59,7 @@ public class enemyMovement : MonoBehaviour
         if (remainingDistance < 0.002f)
         {
             Debug.Log("Remaining Distance: " + remainingDistance.ToString());
-            alerted();
+            //alerted();
         }
     }
 
