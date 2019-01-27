@@ -25,7 +25,7 @@ public class enemyMovement : MonoBehaviour
     public float smoothing = 0.1f;
     public GameObject doggo;
     public float degreesPerSecond = 720.0f;
-    public float stopDuration = 1.0f;
+    public float stopDuration = 0.5f;
 
     private NavMeshAgent agent;
     private int destination;
