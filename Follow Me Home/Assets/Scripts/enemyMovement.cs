@@ -6,8 +6,17 @@ using UnityEngine.AI;
 public class enemyMovement : MonoBehaviour
 {
 
-    public Transform[] waypoints;
+    private enum AlertLevel
+    {
+        Chill,
+        Suspicious,
+        Alerted
+    }
+
+    public Transform waypointsParent;
     public Detector detector;
+    public GameObject suspiciousIcon;
+    public GameObject alertedIcon;
 
     private NavMeshAgent agent;
     private int destination;
@@ -19,35 +28,61 @@ public class enemyMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(waypoints[destination].position);
+        agent.SetDestination(waypointsParent.GetChild(destination).position);
         destination = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        remainingDistance = waypoints[destination].position.x - agent.transform.position.x;
-        if (!agent.pathPending && remainingDistance < 0.5f && !isAlerted)
+        remainingDistance = waypointsParent.GetChild(destination).position.x - agent.transform.position.x;
+        if (!agent.pathPending && !isAlerted)
         {
-            moveToNextWaypoint();
+            if (remainingDistance < 0.25f)
+            {
+                moveToNextWaypoint();
+            }
+            else if (remainingDistance < 10.0f)
+            {
+                SetAlertLevel(AlertLevel.Suspicious);
+            }
         }
 
+    }
+
+    private void SetAlertLevel(AlertLevel alertLevel)
+    {
+        switch (alertLevel)
+        {
+            case AlertLevel.Chill:
+            suspiciousIcon.SetActive(false);
+            alertedIcon.SetActive(false);
+            break;
+            case AlertLevel.Suspicious:
+            suspiciousIcon.SetActive(true);
+            alertedIcon.SetActive(false);
+            break;
+            case AlertLevel.Alerted:
+            suspiciousIcon.SetActive(false);
+            alertedIcon.SetActive(true);
+            break;
+        }
     }
 
     private void moveToNextWaypoint()
     {
         // Set the way point for the NPC to move to.
-        if (destination < (waypoints.Length - 1))
+        if (destination < (waypointsParent.childCount - 1))
         {
             destination++;
-            agent.SetDestination(waypoints[destination].position);
+            agent.SetDestination(waypointsParent.GetChild(destination).position);
         }
 
         // If enemy is at the last way point stop
-        else if (destination == (waypoints.Length - 1))
+        else if (destination == (waypointsParent.childCount - 1))
         {
             Debug.Log("Destination: " + destination.ToString());
-            Debug.Log("Waypoints Len: " + waypoints.Length.ToString());
+            Debug.Log("Waypoints Len: " + waypointsParent.childCount.ToString());
             agent.isStopped = true;
         }
 
@@ -62,6 +97,7 @@ public class enemyMovement : MonoBehaviour
     private void alerted()
     {
         isAlerted = true;
+        SetAlertLevel(AlertLevel.Alerted);
         Debug.Log("I am alerted!");
         turnAround();
     }
@@ -76,6 +112,7 @@ public class enemyMovement : MonoBehaviour
         else
         {
             isAlerted = false;
+            SetAlertLevel(AlertLevel.Chill);
             agent.isStopped = false;
             Debug.Log("Must have been nothing.");
         }
