@@ -9,7 +9,6 @@ public class Mainmenu : MonoBehaviour
 	private AudioSource AudioSource;
 	public AudioClip click;
 	public AudioClip negative;
-	private AudioClip chosenClip;
 
 	// Start is called before the first frame update
 	void Start()
