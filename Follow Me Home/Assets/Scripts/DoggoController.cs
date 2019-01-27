@@ -6,9 +6,9 @@ public class DoggoController : MonoBehaviour
 {
     [Header("Stamina")]
     public bool staminaEnabled = true;
-	public float staminaThreshold = 20.0f;
+	public float staminaThreshold = 40.0f;
 	public float staminaDiff = 0.5f;
-	public float stamina = 10.0f;
+	public float stamina = 20.0f;
 
     [Header("Speed")]
 	public float walkSpeed = 5.0f;
@@ -41,6 +41,7 @@ public class DoggoController : MonoBehaviour
         InputManager.RegisterKeyActive(stopKey, Dummy);
         InputManager.RegisterKeyActive(sprintKey, Dummy);
         targetZ = Mathf.RoundToInt(transform.position.z);
+        stamina = staminaThreshold * 0.5f;
     }
 
     void Dummy(){}

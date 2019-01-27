@@ -51,7 +51,7 @@ public class enemyMovement : MonoBehaviour
             agent.isStopped = true;
         }
 
-        if (destination % 2 == 0)
+        //if (destination % 2 == 0)
         {
             Debug.Log("Remaining Distance: " + remainingDistance.ToString());
 
