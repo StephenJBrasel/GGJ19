@@ -27,6 +27,8 @@ public class Obstacle : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(Obstacle))]
 public class ObstacleEditor : Editor 
 {
@@ -53,3 +55,5 @@ public class ObstacleEditor : Editor
         }
     }
 }
+
+#endif
