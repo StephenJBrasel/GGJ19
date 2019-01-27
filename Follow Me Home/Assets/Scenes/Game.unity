@@ -11490,7 +11490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dba365f10158646836f4ddea694d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaEnabled: 1
+  staminaEnabled: 0
   staminaThreshold: 20
   staminaDiff: 0.5
   stamina: 10
