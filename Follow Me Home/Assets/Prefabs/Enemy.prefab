@@ -907,6 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypointsParent: {fileID: 0}
   detector: {fileID: 0}
+  gameOverMenu: {fileID: 0}
   suspiciousIcon: {fileID: 449452662}
   alertedIcon: {fileID: 389847585726143494}
   gameOver: {fileID: 0}
