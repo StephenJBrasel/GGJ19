@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 8110886316523135842}
   - component: {fileID: 8110886316523135644}
   m_Layer: 0
-  m_Name: Doggo 1
+  m_Name: Doggo
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   maxSpeed: 40
   maxZ: 4
   minZ: 0
-  rotationTarget: {fileID: 8110886316523135646}
+  rotationTarget: {fileID: 8110886317424545238}
   isSprinting: 0
 --- !u!114 &8110886316523135644
 MonoBehaviour:
@@ -166,7 +166,7 @@ MonoBehaviour:
   doggo: {fileID: 8110886316523135841}
   owner: {fileID: 0}
   gameOverMenu: {fileID: 0}
-  maxDistance: 17
+  maxDistance: 25
 --- !u!1001 &8110886317424678750
 PrefabInstance:
   m_ObjectHideFlags: 0
