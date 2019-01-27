@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43680117, g: 0.48443145, b: 0.56468725, a: 1}
+  m_IndirectSpecularColor: {r: 0.43680143, g: 0.48443186, b: 0.56468797, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1829,18 +1829,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083194931}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1116662000 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2579839445615026272, guid: 2ae31f9d28e8f3f47a179c06ffa7d3f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 53633670}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23fd205966e6f2647a71f734f1d88c9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1183393301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,12 +2371,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
-<<<<<<< HEAD
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  detector: {fileID: 1116662000}
-=======
   - {fileID: 1424351891}
   - {fileID: 1632424421}
   - {fileID: 675853840}
@@ -2402,7 +2384,6 @@ MonoBehaviour:
   - {fileID: 1911829943}
   - {fileID: 1011600582}
   detector: {fileID: 55371115}
->>>>>>> 57989617c342497574f271aa0f2e6be6ac50c458
 --- !u!54 &1535956052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2509,13 +2490,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-<<<<<<< HEAD
-  m_Height: 1
-  m_BaseOffset: 0.5
-=======
   m_Height: 2
   m_BaseOffset: 0
->>>>>>> 57989617c342497574f271aa0f2e6be6ac50c458
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1592355266
