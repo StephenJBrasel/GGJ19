@@ -13,7 +13,7 @@ public class enemyMovement : MonoBehaviour
     private int destination = 0;
     private bool isSearching = false;
     private bool isAlerted = false;
-    private float remainingDistance = 0.0f;
+    private float remainingDistance = float.MaxValue;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +59,7 @@ public class enemyMovement : MonoBehaviour
         if (remainingDistance < 0.002f)
         {
             Debug.Log("Remaining Distance less than .002: " + remainingDistance.ToString());
-            //alerted();
+            alerted();
         }
     }
 
