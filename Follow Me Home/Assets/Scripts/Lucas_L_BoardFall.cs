@@ -37,9 +37,4 @@ public class Lucas_L_BoardFall : MonoBehaviour
             }
         }
     }
-
-	private void OnTriggerStay(Collider other)
-	{
-
-	}
 }
