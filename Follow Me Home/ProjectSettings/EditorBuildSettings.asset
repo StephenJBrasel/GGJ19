@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 7cb1e08065b012746a3956c6d5ec4a81
+  - enabled: 1
+    path: Assets/Scenes/Lucas_L_Scenes/Elevation_Test_Level.unity
+    guid: 21b9bee9ed2c9564b92e4dc3888dcd2c
   m_configObjects: {}
