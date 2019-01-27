@@ -25,7 +25,24 @@ public class Obstacle : MonoBehaviour
     {
         
     }
+
+	public Type GetObstacleType()
+	{
+		string current = transform.GetChild(0).name;
+		for (int i = 0; i < transform.childCount; ++i)
+		{
+			var child = transform.GetChild(i);
+			if (child.gameObject.activeSelf)
+			{
+				current = child.name;
+				break;
+			}
+		}
+		return (Obstacle.Type)System.Enum.Parse(typeof(Obstacle.Type), current);
+	}
 }
+
+#if UNITY_EDITOR
 
 [CustomEditor(typeof(Obstacle))]
 public class ObstacleEditor : Editor 
@@ -34,18 +51,7 @@ public class ObstacleEditor : Editor
     {
         Obstacle myTarget = (Obstacle)target;
         
-        string current = myTarget.transform.GetChild(0).name;
-        for (int i = 0; i < myTarget.transform.childCount; ++i)
-        {
-            var child = myTarget.transform.GetChild(i);
-            if (child.gameObject.activeSelf)
-            {
-                current = child.name;
-                break;
-            }
-        }
-
-        var type = EditorGUILayout.EnumPopup("Type", (Obstacle.Type)System.Enum.Parse(typeof(Obstacle.Type), current), GUIStyle.none, null);
+        var type = EditorGUILayout.EnumPopup("Type", myTarget.GetObstacleType(), GUIStyle.none, null);
         for (int j = 0; j < myTarget.transform.childCount; ++j)
         {
             var child = myTarget.transform.GetChild(j);
@@ -53,3 +59,5 @@ public class ObstacleEditor : Editor
         }
     }
 }
+
+#endif

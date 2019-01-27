@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class DoggoController : MonoBehaviour
 {
+        public Animator animator;
+        public float animationSpeed = 1.0f;
+
     [Header("Stamina")]
     public bool staminaEnabled = true;
-	public float staminaThreshold = 20.0f;
+	public float staminaThreshold = 40.0f;
 	public float staminaDiff = 0.5f;
-	public float stamina = 10.0f;
+	public float stamina = 20.0f;
 
     [Header("Speed")]
 	public float walkSpeed = 5.0f;
@@ -27,11 +30,13 @@ public class DoggoController : MonoBehaviour
     public int minZ = 0;
     public Transform rotationTarget;
 
+
     [HideInInspector]
     public bool isSprinting = false;
 
     private float currentZVelocity = 0.0f;
     private int targetZ;
+    private Quaternion initialRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +46,9 @@ public class DoggoController : MonoBehaviour
         InputManager.RegisterKeyActive(stopKey, Dummy);
         InputManager.RegisterKeyActive(sprintKey, Dummy);
         targetZ = Mathf.RoundToInt(transform.position.z);
+        stamina = staminaThreshold * 0.5f;
+        initialRotation = rotationTarget.rotation;
+        animator.speed = animationSpeed;
     }
 
     void Dummy(){}
@@ -66,12 +74,14 @@ public class DoggoController : MonoBehaviour
 	{
         float deltaX = 0.0f;
         float xPerSecond = walkSpeed;
+        animator.speed = animationSpeed;
         bool sprint = false;
         if (InputManager.IsKeyActive(stopKey))
         {
             if (!staminaEnabled || stamina < staminaThreshold)
             {
                 xPerSecond = 0.0f;
+                animator.speed = 0.0f;
 
                 if (staminaEnabled)
                 {
@@ -89,6 +99,7 @@ public class DoggoController : MonoBehaviour
             {
                 sprint = true;
                 xPerSecond *= sprintMultiplier;
+                animator.speed = animationSpeed * sprintMultiplier;
 
                 if (staminaEnabled)
                 {
@@ -116,7 +127,7 @@ public class DoggoController : MonoBehaviour
             {
                 angle *= -1.0f;
             }
-            rotationTarget.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+            rotationTarget.rotation = initialRotation * Quaternion.Euler(0.0f, angle, 0.0f);
         }
     }
 }

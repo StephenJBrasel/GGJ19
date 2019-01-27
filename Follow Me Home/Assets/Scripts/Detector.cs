@@ -10,7 +10,6 @@ public class Detector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Dog is hiding!");
             isHiding = true;
         }
     }
@@ -19,7 +18,6 @@ public class Detector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Dog is now in the open!");
             isHiding = false;
         }
 
