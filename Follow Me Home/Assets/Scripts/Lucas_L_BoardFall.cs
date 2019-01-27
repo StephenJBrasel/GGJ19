@@ -9,52 +9,37 @@ using UnityEngine;
 
 public class Lucas_L_BoardFall : MonoBehaviour
 {
-
-    //public Transform currentAngle;
-    //public Transform newAngle;
-
     public float speed;
-
     public GameObject doggo;
-    public DoggoController controller;
-
     public bool isHit;
-
     public Animator anim;
 
-    // Start is called before the first frame update
-    void Start()
+	private DoggoController controller;
+	
+	void Start()
     {
-        //currentAngle = transform.eulerAngles;
-
-        //controller = GameObject.FindObjectofType<DoggoController>();
+		controller = doggo.GetComponent<DoggoController>();
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*currentAngle = new Vector3(
-            Mathf.LerpAngle(currentAngle.x, newAngle.x, Time.deltaTime),
-            Mathf.LerpAngle(currentAngle.y, newAngle.y, Time.deltaTime),
-            Mathf.LerpAngle(currentAngle.z, newAngle.z, Time.deltaTime));*/
-
-        if (isHit == true)
-        {
-            //transform.rotation = Quaternion.Lerp(currentAngle.rotation, newAngle.rotation, Time.time * speed);
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.GetComponent<DoggoController>())
+	private void OnCollisionEnter(Collision other)
+	{
+		int x = 1;
+        if(other.collider.gameObject.tag == "Player")
         {
             isHit = true;
             if(controller.isSprinting == true)
             {
-                anim.SetTrigger("readyToFall");
+				//animation["BridgePlank : Rotation"].wrapMode = WrapMode.Once;
+				//anim.wrapMode = WrapMode.Once;
+				anim.SetTrigger("readyToFall");
                 Debug.Log("Doggo is in collider");
             }
         }
     }
+
+	private void OnTriggerStay(Collider other)
+	{
+
+	}
 }
