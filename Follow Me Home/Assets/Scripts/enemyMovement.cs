@@ -8,6 +8,7 @@ public class enemyMovement : MonoBehaviour
 
     public Transform[] waypoints;
     public Detector detector;
+    public Menu_GameOver gameOver;
 
     private NavMeshAgent agent;
     private int destination;
@@ -54,7 +55,6 @@ public class enemyMovement : MonoBehaviour
         if (destination % 2 == 0)
         {
             Debug.Log("Remaining Distance: " + remainingDistance.ToString());
-
             alerted();
         }
     }
@@ -72,6 +72,7 @@ public class enemyMovement : MonoBehaviour
         if (!detector.isHiding)
         {
             Debug.Log("I SEE YOU!");
+            gameOver.enabled = true;
         }
         else
         {
