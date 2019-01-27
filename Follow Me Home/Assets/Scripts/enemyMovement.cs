@@ -10,7 +10,7 @@ public class enemyMovement : MonoBehaviour
     public Detector detector;
 
     private NavMeshAgent agent;
-    private int destination = 0;
+    private int destination;
     private bool isSearching = false;
     private bool isAlerted = false;
     private float remainingDistance = float.MaxValue;
@@ -20,7 +20,7 @@ public class enemyMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(waypoints[destination].position);
-        moveToNextWaypoint();
+        destination = 0;
     }
 
     // Update is called once per frame
@@ -43,17 +43,18 @@ public class enemyMovement : MonoBehaviour
             agent.SetDestination(waypoints[destination].position);
         }
 
-        // Set the next waypoint in the array.
-        //destination = ++destination % waypoints.Length;
-        if (destination == (waypoints.Length - 1))
+        // If enemy is at the last way point stop
+        else if (destination == (waypoints.Length - 1))
         {
+            Debug.Log("Destination: " + destination.ToString());
             Debug.Log("Waypoints Len: " + waypoints.Length.ToString());
-            //agent.isStopped = true;
+            agent.isStopped = true;
         }
 
-        if (remainingDistance < 0.002f)
+        if (destination % 2 == 0)
         {
             Debug.Log("Remaining Distance: " + remainingDistance.ToString());
+
             alerted();
         }
     }
@@ -62,12 +63,12 @@ public class enemyMovement : MonoBehaviour
     {
         isAlerted = true;
         Debug.Log("I am alerted!");
-        agent.isStopped = true;
         turnAround();
     }
 
     private void turnAround()
     {
+        agent.isStopped = true;
         if (!detector.isHiding)
         {
             Debug.Log("I SEE YOU!");

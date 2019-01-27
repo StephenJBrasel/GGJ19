@@ -3779,6 +3779,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1872527106}
     m_Modifications:
+    - target: {fileID: 100008, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -3822,10 +3826,6 @@ PrefabInstance:
     - target: {fileID: 400008, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
-      propertyPath: m_Name
-      value: Model
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: a5b64f325634438448f4a7c322781a6d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11444,7 +11444,7 @@ MonoBehaviour:
   doggo: {fileID: 1872527101}
   owner: {fileID: 1535956050}
   gameOverMenu: {fileID: 6658552987599053094}
-  maxDistance: 10
+  maxDistance: 17
 --- !u!4 &1872527106
 Transform:
   m_ObjectHideFlags: 0
@@ -14994,6 +14994,11 @@ PrefabInstance:
       propertyPath: detector
       value: 
       objectReference: {fileID: 1552101494}
+    - target: {fileID: 5632718032759504251, guid: 6b80662eab75c16489965f72f98b1d16,
+        type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 6658552987599053094}
     - target: {fileID: 8635739503236331539, guid: 6b80662eab75c16489965f72f98b1d16,
         type: 3}
       propertyPath: m_LocalRotation.x
