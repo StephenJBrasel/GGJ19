@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 public class enemyMovement : MonoBehaviour
 {
@@ -17,10 +18,12 @@ public class enemyMovement : MonoBehaviour
     public Detector detector;
     public GameObject suspiciousIcon;
     public GameObject alertedIcon;
+    public Menu_GameOver gameOver;
+    public float smoothing = 0.1f;
+    public GameObject doggo;
 
     private NavMeshAgent agent;
     private int destination;
-    private bool isSearching = false;
     private bool isAlerted = false;
     private float remainingDistance = float.MaxValue;
 
@@ -55,17 +58,17 @@ public class enemyMovement : MonoBehaviour
         switch (alertLevel)
         {
             case AlertLevel.Chill:
-            suspiciousIcon.SetActive(false);
-            alertedIcon.SetActive(false);
-            break;
+                suspiciousIcon.SetActive(false);
+                alertedIcon.SetActive(false);
+                break;
             case AlertLevel.Suspicious:
-            suspiciousIcon.SetActive(true);
-            alertedIcon.SetActive(false);
-            break;
+                suspiciousIcon.SetActive(true);
+                alertedIcon.SetActive(false);
+                break;
             case AlertLevel.Alerted:
-            suspiciousIcon.SetActive(false);
-            alertedIcon.SetActive(true);
-            break;
+                suspiciousIcon.SetActive(false);
+                alertedIcon.SetActive(true);
+                break;
         }
     }
 
@@ -89,7 +92,6 @@ public class enemyMovement : MonoBehaviour
         //if (destination % 2 == 0)
         {
             Debug.Log("Remaining Distance: " + remainingDistance.ToString());
-
             alerted();
         }
     }
@@ -105,18 +107,30 @@ public class enemyMovement : MonoBehaviour
     private void turnAround()
     {
         agent.isStopped = true;
-        if (!detector.isHiding)
+        RotateTowards(doggo.transform);
+
+        bool rotationComplete = true;
+        bool rotatedBack = false;
+        if (!detector.isHiding && rotationComplete)
         {
             Debug.Log("I SEE YOU!");
-
+            gameOver.enabled = true;
         }
-        else
+        else if (rotatedBack)
         {
             isAlerted = false;
             SetAlertLevel(AlertLevel.Chill);
             agent.isStopped = false;
             Debug.Log("Must have been nothing.");
         }
+    }
+
+    private void RotateTowards(Transform target)
+    {
+        Debug.Log("Rotating");
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * smoothing);
     }
 
 }
