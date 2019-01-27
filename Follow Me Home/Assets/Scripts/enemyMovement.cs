@@ -72,6 +72,7 @@ public class enemyMovement : MonoBehaviour
         if (!detector.isHiding)
         {
             Debug.Log("I SEE YOU!");
+
         }
         else
         {

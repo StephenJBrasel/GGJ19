@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 1293108894370741491}
   - component: {fileID: 1293108894370741488}
   - component: {fileID: 2244576007301229210}
+  - component: {fileID: 5331455832400495728}
+  - component: {fileID: 1002709097583853078}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -118,6 +120,135 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!82 &5331455832400495728
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293108894370741489}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1002709097583853078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293108894370741489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cd4078185edfc468645e541ba086ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibles:
+  - {fileID: 8300000, guid: 7c57ab85fe4143b47a191a985a11fc22, type: 3}
+  - {fileID: 8300000, guid: 3fbd2d032dc5cea4794522d6e1be2b90, type: 3}
+  - {fileID: 8300000, guid: ce4ca5c617a7ef146979ab8fe90fbdcf, type: 3}
+  - {fileID: 8300000, guid: e75ccb860865d2644a8467aca8550b5a, type: 3}
+  - {fileID: 8300000, guid: 2883008e6438a7c49b5b02dfc95b2b93, type: 3}
+  - {fileID: 8300000, guid: d8dd5d7eb09070d4ab750145915e49c3, type: 3}
+  - {fileID: 8300000, guid: 6558a94c7e98637459a33785b063e12d, type: 3}
+  - {fileID: 8300000, guid: 3229e596bc6ed7b4b803d9f9936805d7, type: 3}
+  - {fileID: 8300000, guid: 9d8c4b41708a06c4780d9603d22ebdf3, type: 3}
+  - {fileID: 8300000, guid: 0b769e70aca54604fb9c2bea4a2372d2, type: 3}
+  - {fileID: 8300000, guid: f7267966b9474d845aac3e1634970331, type: 3}
+  - {fileID: 8300000, guid: 404e7570b552e0745be628f54c705719, type: 3}
+  - {fileID: 8300000, guid: e7f9d0f3ac1ef544d9b828aa021ae32b, type: 3}
+  - {fileID: 8300000, guid: 036a70dbb710f4346bb797fc8bcddac1, type: 3}
+  - {fileID: 8300000, guid: 3dcf533ef819bbb41b56e203f782198c, type: 3}
+  - {fileID: 8300000, guid: dc432f496784ec44fa48def3fdfb36e7, type: 3}
+  - {fileID: 8300000, guid: 8e68a07160f79634a8f44d3aeab06a53, type: 3}
+  - {fileID: 8300000, guid: 908349ecbcd29984ab0940fa7a0ea887, type: 3}
+  - {fileID: 8300000, guid: c2684da22dd905340a0f22ba3d4f9f2f, type: 3}
+  - {fileID: 8300000, guid: 8ac46c0d26386cf4d99e860d213b24d3, type: 3}
 --- !u!1 &1293108894547579963
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,10 +380,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1293108895120421484}
     m_Modifications:
-    - target: {fileID: 100012, guid: 11fc149689032dd4399e5e652da0981f, type: 3}
-      propertyPath: m_Name
-      value: ShopSign
-      objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 11fc149689032dd4399e5e652da0981f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -296,6 +423,10 @@ PrefabInstance:
     - target: {fileID: 400012, guid: 11fc149689032dd4399e5e652da0981f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 11fc149689032dd4399e5e652da0981f, type: 3}
+      propertyPath: m_Name
+      value: ShopSign
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11fc149689032dd4399e5e652da0981f, type: 3}
@@ -375,10 +506,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1293108895627955370}
     m_Modifications:
-    - target: {fileID: 100076, guid: 50aaddb6fce2f024785d056e31ad9b2f, type: 3}
-      propertyPath: m_Name
-      value: Scaffold
-      objectReference: {fileID: 0}
     - target: {fileID: 400076, guid: 50aaddb6fce2f024785d056e31ad9b2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -422,6 +549,10 @@ PrefabInstance:
     - target: {fileID: 400076, guid: 50aaddb6fce2f024785d056e31ad9b2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100076, guid: 50aaddb6fce2f024785d056e31ad9b2f, type: 3}
+      propertyPath: m_Name
+      value: Scaffold
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50aaddb6fce2f024785d056e31ad9b2f, type: 3}
@@ -438,10 +569,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1293108895414577597}
     m_Modifications:
-    - target: {fileID: 100000, guid: 9b4b0c1cfbbbc1e4ea633f9a09e491da, type: 3}
-      propertyPath: m_Name
-      value: BikeRack
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9b4b0c1cfbbbc1e4ea633f9a09e491da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -485,6 +612,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 9b4b0c1cfbbbc1e4ea633f9a09e491da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9b4b0c1cfbbbc1e4ea633f9a09e491da, type: 3}
+      propertyPath: m_Name
+      value: BikeRack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b4b0c1cfbbbc1e4ea633f9a09e491da, type: 3}
@@ -501,10 +632,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1293108894547579962}
     m_Modifications:
-    - target: {fileID: 100000, guid: 4e745870f94c349469fca31e62f2a53a, type: 3}
-      propertyPath: m_Name
-      value: FireHydrant
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4e745870f94c349469fca31e62f2a53a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -548,6 +675,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 4e745870f94c349469fca31e62f2a53a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4e745870f94c349469fca31e62f2a53a, type: 3}
+      propertyPath: m_Name
+      value: FireHydrant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e745870f94c349469fca31e62f2a53a, type: 3}
