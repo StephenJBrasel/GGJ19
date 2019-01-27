@@ -15,6 +15,12 @@ public class enemyMovement : MonoBehaviour
     private bool isAlerted = false;
     private float remainingDistance = float.MaxValue;
 
+    private NavMeshAgent agent;
+    private int destination = 0;
+    private bool isSearching = false;
+    private bool isAlerted = false;
+    private float remainingDistance = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,13 +58,19 @@ public class enemyMovement : MonoBehaviour
         //destination = ++destination % waypoints.Length;
         if (destination == (waypoints.Length - 1))
         {
-            Debug.Log("Waypoints Len: " + waypoints.Length.ToString());
-            //agent.isStopped = true;
+            destination++;
+            agent.SetDestination(waypoints[destination].position);
         }
 
         if (remainingDistance < 0.002f)
         {
             Debug.Log("Remaining Distance less than .002: " + remainingDistance.ToString());
+            alerted();
+        }
+
+        if (remainingDistance < 0.002f)
+        {
+            Debug.Log("Remaining Distance: " + remainingDistance.ToString());
             alerted();
         }
     }
