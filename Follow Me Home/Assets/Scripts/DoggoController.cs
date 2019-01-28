@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoggoController : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class DoggoController : MonoBehaviour
     public KeyCode furtherKey = KeyCode.W;
     public KeyCode closerKey = KeyCode.S;
     public KeyCode stopKey = KeyCode.A;
-    public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode sprintKey = KeyCode.D;
+    public KeyCode restartKey = KeyCode.R;
 
     [Header("Z Movement")]
     public float smoothTime = 0.1f;
@@ -43,12 +45,18 @@ public class DoggoController : MonoBehaviour
     {
         InputManager.RegisterKeyActivated(furtherKey, MoveFurther);
         InputManager.RegisterKeyActivated(closerKey, MoveCloser);
+        InputManager.RegisterKeyActivated(restartKey, Restart);
         InputManager.RegisterKeyActive(stopKey, Dummy);
         InputManager.RegisterKeyActive(sprintKey, Dummy);
         targetZ = Mathf.RoundToInt(transform.position.z);
         stamina = staminaThreshold * 0.5f;
         initialRotation = rotationTarget.rotation;
         animator.speed = animationSpeed;
+    }
+
+    void Restart()
+    {
+       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void Dummy(){}
